@@ -20,8 +20,14 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <SmurfForm />
-        <Smurfs smurfs={this.state.smurfs} />
+        <nav>
+          <NavLink to='/'>Home</NavLink>
+          <NavLink to='/smurfform'>Add Smurf</NavLink>
+        </nav>
+        <div className="smurfcontainer">
+          <SmurfForm />
+          <Smurfs smurfs={this.state.smurfs} />
+        </div>
       </div>
     );
   }
