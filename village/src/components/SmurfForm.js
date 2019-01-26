@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import axios from 'axios';
+import { Redirect } from 'react-router-dom';
 
 class SmurfForm extends Component {
   constructor(props) {
@@ -11,8 +13,18 @@ class SmurfForm extends Component {
   }
 
   addSmurf = event => {
+    const { name, age, height } = this.state;
     event.preventDefault();
-    // add code to create the smurf using the api
+    axios
+      .post('http://localhost:3333/smurfs', {
+        name: name,
+        age: age,
+        height: height
+      })
+      .then(res => {
+        this.props.handleUpdate(res.data)
+      })
+      .catch(err => console.log(err));
 
     this.setState({
       name: '',
