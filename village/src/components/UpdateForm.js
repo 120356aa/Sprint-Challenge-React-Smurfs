@@ -21,15 +21,11 @@ class UpdateForm extends Component {
 				age: this.state.age,
 				height: this.state.height
 			})
-			.then(res => this.setState({
-				smurfs: res.data
-			}))
+			.then(res => this.setState({ smurfs: res.data }))
 			.catch(err => console.log(err));
 	}
 
-	handleInputChange = e => {
-		this.setState({ [e.target.name]: e.target.value })
-	}
+	handleInputChange = e => this.setState({ [e.target.name]: e.target.value });
 
 	render() {
 		return(

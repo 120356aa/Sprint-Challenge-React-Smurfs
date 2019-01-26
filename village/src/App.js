@@ -34,9 +34,7 @@ class App extends Component {
       .catch(error => console.log(error, 'ERROR'))
   }
 
-  handleUpdate = res => {
-    this.setState({ smurfs: res})
-  }
+  handleUpdate = res => this.setState({ smurfs: res});
 
   render() {
     return (
