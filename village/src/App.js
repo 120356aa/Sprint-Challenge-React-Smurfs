@@ -5,6 +5,7 @@ import './App.css';
 import SmurfForm from './components/SmurfForm';
 import Smurfs from './components/Smurfs';
 import UpdateForm from './components/UpdateForm';
+import axios from 'axios';
 
 class App extends Component {
   constructor(props) {
@@ -22,8 +23,12 @@ class App extends Component {
 
   }
 
-  deleteSmurf = () => {
-
+  deleteSmurf = event => {
+    event.preventDefault();
+    axios
+      .delete(`http://localhost:3333/smurfs/${event.target.id}`)
+      .then(res => this.setState({ smurfs: res.date }))
+      .catch(err => console.log(err));
   }
 
   updateSmurf = () => {
