@@ -19,8 +19,11 @@ class App extends Component {
     };
   }
 
-  handleUpdate = () => {
-
+  componentDidMount() {
+    axios
+      .get('http://localhost:3333/smurfs')
+      .then(res => this.setState({ smurfs: res.data }))
+      .catch(err => console.log(err));
   }
 
   deleteSmurf = event => {
@@ -31,12 +34,8 @@ class App extends Component {
       .catch(err => console.log(err));
   }
 
-  updateSmurf = () => {
-
-  }
-
-  addSmurf = () => {
-    
+  handleUpdate = res => {
+    this.setState({ smurfs: res})
   }
 
   render() {
