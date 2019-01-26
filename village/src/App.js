@@ -18,6 +18,22 @@ class App extends Component {
     };
   }
 
+  handleUpdate = () => {
+
+  }
+
+  deleteSmurf = () => {
+
+  }
+
+  updateSmurf = () => {
+
+  }
+
+  addSmurf = () => {
+
+  }
+
   render() {
     return (
       <div className="App">
@@ -27,15 +43,20 @@ class App extends Component {
         </nav>
         <div className="smurfcontainer">
           <Route exact path="/" render={props => (
-            <Smurfs smurfs={this.state.smurfs} />
+            <Smurfs
+              {...props}
+              smurfs={this.state.smurfs}
+              deleteSmurf={this.deleteSmurf}
+              updateSmurf={this.updateSmurf}
+              addSmurf={this.addSmurf} />
           )}/>
             
           <Route path='/smurfform' render={props => (
-            <SmurfForm />
+            <SmurfForm {...props} handleUpdate={res => {this.handleUpdate(res)}} />
           )}/>
             
           <Route path='/update' render={props => (
-            <UpdateForm />
+            <UpdateForm {...props} id={this.state.id} />
           )}/>
         </div>
       </div>
