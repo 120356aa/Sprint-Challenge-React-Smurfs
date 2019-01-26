@@ -17,9 +17,9 @@ class Smurfs extends Component {
                   age={smurf.age}
                   height={smurf.height}
                   key={smurf.id}/>
-                  
+
                 <button id={smurf.id} onClick={this.props.deleteSmurf}>Delete</button>
-                <Link t0='/update'><button id={smurf.id} onClick={this.props.updateSmurf}>Update</button></Link>
+                <Link to='/update'><button id={smurf.id} onClick={this.props.updateSmurf}>Update</button></Link>
               </div>
             );
           })}

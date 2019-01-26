@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Redirect } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 class UpdateForm extends Component {
 	constructor(props) {
@@ -14,19 +14,15 @@ class UpdateForm extends Component {
 	}
 
 	updateSmurf = event => {
-		let id = this.state.id;
 		event.preventDefault();
 		axios
-			.put(`http://localhost:3333/smurfs/${id}`, {
+			.put(`http://localhost:3333/smurfs/${this.state.id}`, {
 				name: this.state.name,
 				age: this.state.age,
 				height: this.state.height
 			})
 			.then(res => this.setState({
-				smurfs: res.data,
-				name: '',
-				age: '',
-				height: ''
+				smurfs: res.data
 			}))
 			.catch(err => console.log(err));
 	}
@@ -57,7 +53,7 @@ class UpdateForm extends Component {
 						value={this.state.height}
 						name="height"
 					/>
-					<button type="submit">Add Smurf</button>
+					<button type="submit">Update Smurf</button>
 				</form>
 			</div>
 		);
