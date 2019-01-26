@@ -27,11 +27,11 @@ class App extends Component {
   }
 
   deleteSmurf = event => {
-    event.preventDefault();
+    event.preventDefault()
     axios
       .delete(`http://localhost:3333/smurfs/${event.target.id}`)
-      .then(res => this.setState({ smurfs: res.date }))
-      .catch(err => console.log(err));
+      .then(response => this.setState({ smurfs: response.data }))
+      .catch(error => console.log(error, 'ERROR'))
   }
 
   handleUpdate = res => {
