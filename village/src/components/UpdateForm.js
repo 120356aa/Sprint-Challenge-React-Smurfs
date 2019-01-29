@@ -21,6 +21,7 @@ class UpdateForm extends Component {
 				age: this.state.age,
 				height: this.state.height
 			})
+			
 			.then(res => this.props.handleUpdate(res.data))
 			.catch(err => console.log(err));
 	}
