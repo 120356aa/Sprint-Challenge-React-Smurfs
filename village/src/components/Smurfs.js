@@ -19,7 +19,7 @@ class Smurfs extends Component {
                   key={smurf.id}/>
 
                 <button id={smurf.id} onClick={this.props.deleteSmurf}>Delete</button>
-                <Link to='/update'><button id={smurf.id} onClick={this.props.updateSmurf}>Update</button></Link>
+                <Link to={`/update/${smurf.id}`}><button id={smurf.id} onClick={this.props.updateSmurf}>Update</button></Link>
               </div>
             );
           })}

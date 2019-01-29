@@ -57,8 +57,8 @@ class App extends Component {
             <SmurfForm {...props} handleUpdate={res => {this.handleUpdate(res)}} />
           )}/>
             
-          <Route path='/update' render={props => (
-            <UpdateForm {...props} id={this.state.id} />
+          <Route path='/update/:id' render={props => (
+            <UpdateForm {...props} handleUpdate={res => {this.handleUpdate(res)}}/>
           )}/>
         </div>
       </div>

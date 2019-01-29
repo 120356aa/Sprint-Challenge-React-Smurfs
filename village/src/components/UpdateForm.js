@@ -16,12 +16,12 @@ class UpdateForm extends Component {
 	updateSmurf = event => {
 		event.preventDefault();
 		axios
-			.put(`http://localhost:3333/smurfs/${this.state.id}`, {
+			.put(`http://localhost:3333/smurfs/${this.props.match.params.id}`, {
 				name: this.state.name,
 				age: this.state.age,
 				height: this.state.height
 			})
-			.then(res => this.setState({ smurfs: res.data }))
+			.then(res => this.props.handleUpdate(res.data))
 			.catch(err => console.log(err));
 	}
 
